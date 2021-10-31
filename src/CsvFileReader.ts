@@ -1,7 +1,7 @@
 import fs from 'fs';
-import { DataReader } from './DataReader';
+import { IDataReader } from './IDataReader';
 
-export  class CsvFileReader implements DataReader {
+export  class CsvFileReader implements IDataReader {
     data: string[][]=[];
 
     constructor (public fileName: string){}

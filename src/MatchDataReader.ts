@@ -1,14 +1,12 @@
-import { DataReader } from "./DataReader";
-import { MatchResult } from "./MatchResult";
+import { IDataReader } from "./IDataReader";
+import { MatchData } from "./MatchData";
+import { MatchResultEnum } from "./MatchResultEnum";
 import { stringToDate } from "./utils";
-
-//tuple
-type MatchData =[Date, string, string, number, number, MatchResult, string];
 
 export class MatchDataReader   {
 
     matches: MatchData[]=[];
-    constructor (public reader: DataReader){
+    constructor (public reader: IDataReader){
 
     }
     load():void {
@@ -20,7 +18,7 @@ export class MatchDataReader   {
                 row[2],
                 parseInt(row[3]),
                 parseInt(row[4]),
-                row[5] as MatchResult, //type assertion
+                row[5] as MatchResultEnum, //type assertion
                 row[6]
             ];
         }
